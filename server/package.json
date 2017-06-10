@@ -1,0 +1,22 @@
+{
+  "name": "post-it",
+  "version": "1.0.0",
+  "description": "PostIt is a simple application that allows friends and colleagues create groups for notifications.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Adaumeh/post-it.git"
+  },
+  "author": "Umeononihu Adaobi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Adaumeh/post-it/issues"
+  },
+  "homepage": "https://github.com/Adaumeh/post-it#readme",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
