@@ -25,7 +25,9 @@ module.exports = (sequelize, DataTypes) => {
 
     classMethods: {
       associate: (models) => {
-       USER.hasMany(models.group
+        USER.hasMany(models.usergroup,{
+          foreignKey:''
+        Todo.hasMany(models.TodoItem, {
           foreignKey: 'todoId',
           as: 'todoItems',
         });
