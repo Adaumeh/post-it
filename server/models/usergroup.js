@@ -1,16 +1,40 @@
-'use strict';
-module.exports = function(sequelize, DataTypes) {
-  var USERGROUP = sequelize.define('USERGROUP', {
-    group_name: DataTypes.VARCHAR,
-    group_id: DataTypes.VARCHAR,
-    msg_title: DataTypes.VARCHAR,
-    msg_value: DataTypes.VARCHAR
+
+module.exports = (sequelize, DataTypes) => {
+  const USERGROUP = sequelize.define('USERGROUP', {
+    group_name: {
+      type: DataTypes.VARCHAR,
+      allowNull: false,
+      
+    },
+    group_id: {
+      type: DataTypes.VARCHAR,
+      defaultValue: false,
+    },
+    msg_id: {
+      type: DataTypes.VARCHAR,
+      defaultValue: false,
+    },
+    msg_title: {
+      type: DataTypes.VARCHAR,
+      defaultValue: false,
+    },
+    msg_value: {
+      type: DataTypes.VARCHAR,
+      defaultValue: false,
+    },
+    user_id: {
+      type: DataTypes.VARCHAR,
+      defaultValue: false,
+    },
   }, {
     classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
+      associate: (models) => {
+        USERGROUP.hasMany(models.message, {
+          foreignKey: 'group_id',
+          onDelete: 'CASCADE',
+        });
+      },
+    },
   });
   return USERGROUP;
 };

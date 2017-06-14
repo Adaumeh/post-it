@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.VARCHAR,
       allowNull: false,
     },
-    userid:{
+    id:{
       type: DataTypes.VARCHAR,
       allowNull: false,
     },
@@ -25,14 +25,15 @@ module.exports = (sequelize, DataTypes) => {
 
     classMethods: {
       associate: (models) => {
+        USER.hasMany(models.message,{
+          foreignKey:'userid'
         USER.hasMany(models.usergroup,{
-          foreignKey:''
-        Todo.hasMany(models.TodoItem, {
-          foreignKey: 'todoId',
-          as: 'todoItems',
+          foreignKey: 'userid
+          as: 'userid'
+          allowNull:false
         });
       },
     },
   });
-  return Todo;
+  return USER;
 };
